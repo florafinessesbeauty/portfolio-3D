@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enes Rencber's 3D Rendering Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E; /* Deep Charcoal */
+      font-family: Arial, sans-serif;
+      color: #FFFFFF; /* Primary text in Crisp White */
+    }
+    
+    /* Navigation Styles */
+    nav {
+      background-color: #E10600; /* Bold Crimson Red */
+      padding: 15px;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      counter-reset: navcounter;
+    }
+    nav ul li {
+      counter-increment: navcounter;
+      margin: 0 20px;
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #FFFFFF; 
+      font-size: 18px;
+      padding: 10px 15px;
+      display: inline-block;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    /* Gamified counter indicator (optional) */
+    nav ul li a .nav-counter::before {
+      content: counter(navcounter);
+      background-color: #E10600;
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      left: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Hover Effects for Navigation: scale-up and subtle glow */
+    nav ul li a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(225, 80, 0, 0.25);
+    }
+    
+    /* Hero Section with Overlay */
+    .hero {
+      position: relative;
+      height: 600px;
+      background: url('images/hero.jpg') no-repeat center center/cover; /* Update with your image path */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Semi-transparent overlay for a cinematic effect */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(30, 30, 30, 0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 0 0 20px 0;
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      color: #B0B0B0; /* Cool Grey */
+    }
+    
+    /* Main Content Section: Introducing your 3D rendering work */
+    section {
+      padding: 40px 20px;
+    }
+    .section-heading {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+    .section-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #B0B0B0;
+      margin-bottom: 20px;
+    }
+    
+    /* Additional Japanese-inspired Dense Layout Element:
+       Vertical text accent using Vibrant Gold/Yellow (#FFEB3B) */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 16px;
+      color: #FFEB3B;
+      margin-right: 10px;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      color: #B0B0B0;
+      font-size: 14px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hero {
+        height: 400px;
+      }
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+  <ul>
+    <li><a href="home.html"><span class="nav-counter"></span>Home</a></li>
+    <!-- Using the exact file name as it appears in your folder -->
+    <li><a href="Inroduction.html"><span class="nav-counter"></span>Introduction</a></li>
+    <li><a href="AboutMe.html"><span class="nav-counter"></span>About Me</a></li>
+    <!-- Encode the space in "3D Renders.html" -->
+    <li><a href="3D%20Renders.html"><span class="nav-counter"></span>3D Renders</a></li>
+    <li><a href="Contact.html"><span class="nav-counter"></span>Contact</a></li>
+  </ul>
+</nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Captivating 3D Renders</h1>
+      <p>High-quality product renders with HDR lighting &amp; advanced studio setups</p>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <section>
+    <h2 class="section-heading">Welcome to Enes Rencber's 3D Rendering Portfolio</h2>
+    <p class="section-text">
+      I am Enes Rencber, a professional 3D artist specializing in product rendering and animation across multiple niches.
+      My work breathes life into a variety of products—from beverages such as fine wines, craft spirits, and soft drinks to cutting-edge technology items like laptops, cameras, and beauty products.
+    </p>
+    <p class="section-text">
+      Utilizing state-of-the-art HDR lighting techniques and advanced studio setups, I create hyper-realistic and visually striking renders.
+      Every image is meticulously crafted to present an immersive experience that highlights each product’s unique essence.
+      Explore my portfolio to discover how I blend creative artistry with modern digital techniques for a truly captivating presentation.
+    </p>
+    <!-- Example of a denser, layered content element with Japanese-inspired vertical text accent -->
+    <div style="display: flex; align-items: center; margin-top: 40px;">
+      <div class="vertical-text">
+        FEATURED
+      </div>
+      <div style="flex: 1; font-size: 18px; color: #B0B0B0; line-height: 1.6;">
+        Dive into detailed case studies and projects where each product is rendered with exceptional focus.
+        The interplay of vibrant light and shadow enhances the allure of every product, whether it's a sophisticated beverage or a sleek technological gadget.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Enes Rencber. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

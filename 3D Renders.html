@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Renders | Enes Rencber's 3D Rendering Portfolio</title>
+
+  <!-- Import the model-viewer library -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E; /* Deep Charcoal */
+      font-family: Arial, sans-serif;
+      color: #FFFFFF; /* Primary text */
+      line-height: 1.6;
+    }
+
+    /* Navigation Styles */
+    nav {
+      background-color: #E10600; /* Bold Crimson Red */
+      padding: 15px;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      counter-reset: navcounter;
+    }
+    nav ul li {
+      counter-increment: navcounter;
+      margin: 0 20px;
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 18px;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    /* Gamified counter indicator (optional) */
+    nav ul li a .nav-counter::before {
+      content: counter(navcounter);
+      background-color: #E10600;
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      left: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    nav ul li a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(225, 80, 0, 0.25);
+    }
+
+    /* Hero Section with Overlay */
+    .hero {
+      position: relative;
+      height: 500px;
+      background: url('brownginbottle.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(30, 30, 30, 0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 0 0 10px 0;
+    }
+    .hero-content p {
+      font-size: 20px;
+      color: #B0B0B0;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .grid-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+    .grid-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(30, 30, 30, 0.8);
+      color: #B0B0B0;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+    }
+    .grid-item:hover .grid-overlay {
+      opacity: 1;
+    }
+    .grid-overlay h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      color: #FFFFFF;
+    }
+    /* (Download button removed as not needed) */
+
+    /* Interactive 3D Model Viewer Section */
+    .interactive-3d {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #2A2A2A;
+    }
+    .interactive-3d h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+    model-viewer {
+      width: 100%;
+      height: 500px;
+      background-color: #1E1E1E;
+      border-radius: 8px;
+    }
+
+    /* Vertical Accent Element */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 16px;
+      color: #FFEB3B;
+      margin-right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      color: #B0B0B0;
+      font-size: 14px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hero {
+        height: 350px;
+      }
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+      model-viewer {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="home.html"><span class="nav-counter"></span>Home</a></li>
+      <li><a href="Inroduction.html"><span class="nav-counter"></span>Introduction</a></li>
+      <li><a href="AboutMe.html"><span class="nav-counter"></span>About Me</a></li>
+      <li><a href="3DRenders.html"><span class="nav-counter"></span>3D Renders</a></li>
+      <li><a href="Contact.html"><span class="nav-counter"></span>Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>3D Renders</h1>
+      <p>Showcasing Premium Cinema4D Projects and Interactive 3D Views</p>
+    </div>
+  </header>
+
+  <!-- Gallery Section (Static Images with Overlays) -->
+  <section class="gallery">
+    <!-- Grid Item 1: Using brownginbottle.jpg as the thumbnail for the Blue Gin Bottle render -->
+    <div class="grid-item">
+      <a href="#interactive">
+        <img src="brownginbottle.jpg" alt="3D Render - Beverage Product">
+      </a>
+      <div class="grid-overlay">
+        <h3>Beverage Product Render</h3>
+        <p>Stunning HDR visuals for premium drinks</p>
+      </div>
+    </div>
+    <!-- (Add more grid items as needed) -->
+  </section>
+
+  <!-- Interactive 3D Model Viewer Section -->
+  <section id="interactive" class="interactive-3d">
+    <h2>Interactive 3D Viewer</h2>
+  <model-viewer 
+  src="blueginbottle.glb" 
+  alt="Interactive 3D Product Render" 
+  auto-rotate 
+  camera-controls 
+  reveal="auto"
+  environment-image="neutral"
+  poster="brownginbottle.jpg">
+</model-viewer>
+  </section>
+
+  <!-- Vertical Accent Section -->
+  <section style="padding: 40px 20px; display: flex; align-items: center; background-color: #2A2A2A;">
+    <div class="vertical-text">EXPLORE</div>
+    <div style="flex: 1; font-size: 18px; color: #B0B0B0;">
+      Experience the depth and detail of each product by interacting directly with the render.
+      Rotate, zoom, and inspect your next potential asset—see how every nuance is captured in 3D.
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Enes Rencber. All Rights Reserved.
+  </footer>
+</body>
+</html>

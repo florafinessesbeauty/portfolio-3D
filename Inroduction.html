@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introduction | Enes Rencber's 3D Rendering Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E; /* Deep Charcoal */
+      font-family: Arial, sans-serif;
+      color: #FFFFFF; /* Primary text in Crisp White */
+      line-height: 1.6;
+    }
+    
+    /* Navigation Styles */
+    nav {
+      background-color: #E10600; /* Bold Crimson Red */
+      padding: 15px;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      counter-reset: navcounter;
+    }
+    nav ul li {
+      counter-increment: navcounter;
+      margin: 0 20px;
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 18px;
+      padding: 10px 15px;
+      display: inline-block;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    /* Optional gamified counter indicator */
+    nav ul li a .nav-counter::before {
+      content: counter(navcounter);
+      background-color: #E10600;
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      left: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    nav ul li a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(225, 80, 0, 0.25);
+    }
+    
+    /* Hero Section with Overlay */
+    .hero {
+      position: relative;
+      height: 500px;
+      background: url('images/intro-hero.jpg') no-repeat center center/cover; /* Replace with your hero image path for the Introduction page */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(30, 30, 30, 0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 0 0 10px 0;
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin: 0;
+      color: #B0B0B0;
+    }
+    
+    /* Main Content Section */
+    section {
+      padding: 40px 20px;
+    }
+    .section-heading {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+    .section-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #B0B0B0;
+      text-align: justify;
+    }
+    /* Call-to-action style */
+    .cta {
+      background-color: #E10600;
+      color: #FFFFFF;
+      padding: 15px 25px;
+      font-size: 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+    }
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(225, 80, 0, 0.3);
+    }
+    
+    /* Japanese-Inspired Vertical Accent */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 16px;
+      color: #FFEB3B;
+      margin-right: 10px;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      color: #B0B0B0;
+      font-size: 14px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hero {
+        height: 350px;
+      }
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+<nav>
+  <ul>
+    <li><a href="home.html"><span class="nav-counter"></span>Home</a></li>
+    <!-- Using the exact file name as it appears in your folder -->
+    <li><a href="Inroduction.html"><span class="nav-counter"></span>Introduction</a></li>
+    <li><a href="AboutMe.html"><span class="nav-counter"></span>About Me</a></li>
+    <!-- Encode the space in "3D Renders.html" -->
+    <li><a href="3D%20Renders.html"><span class="nav-counter"></span>3D Renders</a></li>
+    <li><a href="Contact.html"><span class="nav-counter"></span>Contact</a></li>
+  </ul>
+</nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to My Creative World</h1>
+      <p>Innovative, Detailed, and Impactful 3D Product Renderings</p>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <section>
+    <h2 class="section-heading">Introduction</h2>
+    <p class="section-text">
+      I am Enes Rencber, a passionate 3D product renderer with a deep commitment to translating ideas into visually stunning realities. 
+      With two years of experience in the industry, my work leverages powerful tools such as Cinema 4D integrated with Octane Render to create photo-realistic visuals that showcase products in their best light. 
+      Whether it’s a luxury beverage, an innovative tech gadget, or a high-end e-commerce item, I apply state-of-the-art HDR lighting techniques and meticulous studio setups to ensure every detail is crisp and engaging.
+    </p>
+    <p class="section-text">
+      My creative philosophy is rooted in a unique blend of technical excellence and artistic flair. Inspired by the dynamic, dense, and vibrant aesthetic of Japanese design, my approach goes beyond minimalism to deliver rich, layered visuals that capture the essence of each product. 
+      By combining conceptual design, comprehensive lighting setups, and advanced rendering techniques, I develop images that not only meet the marketing needs of brands but also evoke an emotional response from the audience.
+    </p>
+    <p class="section-text">
+      In addition to serving diverse niches—from beverages like fine wines, craft spirits, and soft drinks, to cutting-edge technology products such as laptops, cameras, and beauty devices—I work closely with brand owners and major e-commerce companies to enhance their visual presence online. 
+      My dedication to quality and innovation ensures that every project stands out in today's competitive market, inviting viewers to explore deeper and ultimately connect with the quality of your brand.
+    </p>
+    <p class="section-text">
+      Driven by a desire to push creative boundaries, I strive to deliver not just images, but immersive experiences that articulate the unique story behind each product. This commitment to excellence makes it easy for companies and brand owners to trust my services for elevating their online visual identity and driving business success.
+    </p>
+    
+    <!-- Japanese-inspired vertical accent for additional flair -->
+    <div style="display: flex; align-items: center; margin-top: 40px;">
+      <div class="vertical-text">EXPLORE</div>
+      <div style="flex: 1; font-size: 18px; color: #B0B0B0;">
+        Delve into the innovative process that transforms raw concepts into captivating visuals. 
+        Explore case studies, detailed project breakdowns, and behind-the-scenes insights into how I consistently deliver premium 3D renders that engage audiences and drive sales.
+      </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="contact.html" class="cta">Book a Consultation Today</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Enes Rencber. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

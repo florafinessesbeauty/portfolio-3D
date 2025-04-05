@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Model-Viewer - Blue Gin Bottle</title>
+  <!-- Import model-viewer from CDN -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    /* Make sure the model-viewer element is visibly bounded */
+    model-viewer {
+      width: 100%;
+      height: 500px;
+      background-color: #1E1E1E;
+      border: 2px solid #E10600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Interactive 3D Model Viewer for the Blue Gin Bottle -->
+  <model-viewer 
+    src="blueginbottle.glb" 
+    alt="Blue Gin Bottle 3D Model" 
+    auto-rotate 
+    camera-controls 
+    reveal="auto"
+    environment-image="neutral"
+    poster="brownginbottle.jpg">
+  </model-viewer>
+</body>
+</html>
