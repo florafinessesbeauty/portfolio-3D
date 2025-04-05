@@ -18,7 +18,7 @@
       color: #FFFFFF; /* Primary text in Crisp White */
       line-height: 1.6;
     }
-
+    
     /* Navigation Styles */
     nav {
       background-color: #E10600; /* Bold Crimson Red */
@@ -66,7 +66,7 @@
       transform: scale(1.1);
       box-shadow: 0 0 15px rgba(225,80,0,0.25);
     }
-
+    
     /* Hero Section with Overlay */
     .hero {
       position: relative;
@@ -100,7 +100,7 @@
       margin: 0;
       color: #B0B0B0;
     }
-
+    
     /* Gallery Section */
     .gallery {
       display: grid;
@@ -155,7 +155,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 12px rgba(225,80,0,0.3);
     }
-
+    
     /* Interactive 3D Model Viewer Section */
     .interactive-3d {
       padding: 40px 20px;
@@ -173,7 +173,7 @@
       background-color: #1E1E1E;
       border-radius: 8px;
     }
-
+    
     /* Vertical Accent Element */
     .vertical-text {
       writing-mode: vertical-rl;
@@ -182,7 +182,7 @@
       color: #FFEB3B;
       margin-right: 10px;
     }
-
+    
     /* Footer */
     footer {
       background-color: #111;
@@ -191,7 +191,7 @@
       color: #B0B0B0;
       font-size: 14px;
     }
-
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       nav ul { flex-direction: column; align-items: center; }
@@ -214,7 +214,7 @@
       <li><a href="Contact.html"><span class="nav-counter"></span>Contact</a></li>
     </ul>
   </nav>
-
+  
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-content">
@@ -222,11 +222,13 @@
       <p>Showcasing Premium Cinema4D Projects and Interactive 3D Views</p>
     </div>
   </header>
-
+  
   <!-- Gallery Section (Static Images with Overlays) -->
   <section class="gallery">
     <!-- Grid Item 1 -->
-    <div class="grid-item"> <a href="blueGinBottle.glb"><img src="blueGinBottle.glb" alt="3D Render - Beverage Product"></a>
+    <div class="grid-item">
+      <!-- Use the correct file name (all lowercase) -->
+      <a href="blueginbottle.glb"><img src="blueginbottle.glb" alt="3D Render - Beverage Product"></a>
       <div class="grid-overlay">
         <h3>Beverage Product Render</h3>
         <p>Stunning HDR visuals for premium drinks</p>
@@ -253,21 +255,22 @@
     </div>
     <!-- Add more grid items as needed -->
   </section>
-
+  
   <!-- Interactive 3D Model Viewer Section -->
   <section class="interactive-3d">
     <h2>Interactive 3D Viewer</h2>
- <model-viewer 
-  src="https://florafinessesbeauty.github.io/portfolio-3D/blueginbottle.glb" 
-  alt="Blue Gin Bottle 3D Model" 
-  auto-rotate 
-  camera-controls 
-  reveal="auto"
-  environment-image="neutral"
-  poster="https://florafinessesbeauty.github.io/portfolio-3D/brownginbottle.jpg">
-</model-viewer>
+    <!-- Using the self-contained GLB file for reliable texture rendering -->
+    <model-viewer 
+      src="https://florafinesses.github.io/portfolio-3D/blueginbottle.glb" 
+      alt="Blue Gin Bottle 3D Model" 
+      auto-rotate 
+      camera-controls 
+      reveal="auto"
+      environment-image="neutral"
+      poster="https://florafinesses.github.io/portfolio-3D/brownginbottle.jpg">
+    </model-viewer>
   </section>
-
+  
   <!-- Vertical Accent Section -->
   <section style="padding: 40px 20px; display: flex; align-items: center; background-color: #2A2A2A;">
     <div class="vertical-text">EXPLORE</div>
@@ -276,7 +279,7 @@
       Rotate, zoom, and inspect your next potential asset—see how every nuance is captured in 3D.
     </div>
   </section>
-
+  
   <!-- Footer -->
   <footer>
     &copy; 2025 Enes Rencber. All Rights Reserved.
