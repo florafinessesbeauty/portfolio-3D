@@ -5,23 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site.title | default: "Your SaaS Product" }} - Landing Page</title>
   
-  <!-- Import model-viewer library for 3D interactivity -->
+  <!-- Import model-viewer for 3D interactivity -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   
+  <!-- Global Styles -->
   <style>
-    /* Global Styles */
+    /* Global & Typography */
     body {
       margin: 0;
       padding: 0;
-      background-color: #1E1E1E; /* Deep Charcoal */
+      background-color: #1E1E1E;
       font-family: Arial, sans-serif;
-      color: #FFFFFF;
+      color: #FFF;
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-    /* Navigation Bar */
+    
+    /* Navigation */
     nav {
-      background-color: #E10600; /* Bold Crimson Red */
+      background-color: #E10600;
       padding: 15px;
       position: sticky;
       top: 0;
@@ -42,16 +44,17 @@
     }
     nav ul li a {
       text-decoration: none;
-      color: #FFFFFF;
+      color: #FFF;
       font-size: 18px;
       padding: 10px 15px;
       transition: all 0.3s ease;
     }
+    /* Optional gamified counter */
     nav ul li a .nav-counter::before {
       content: counter(navcounter);
       background-color: #E10600;
       border-radius: 50%;
-      color: #FFFFFF;
+      color: #FFF;
       display: inline-block;
       width: 24px;
       height: 24px;
@@ -65,10 +68,39 @@
     }
     nav ul li a:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(225, 80, 0, 0.25);
+      box-shadow: 0 0 15px rgba(225,80,0,0.25);
     }
     
-    /* Hero Section (Home) */
+    /* Section Base */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .section-heading {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+    .section-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #B0B0B0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+    }
+    
+    /* Vertical Accent Element (Japanese-Inspired) */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 16px;
+      color: #FFEB3B;
+      margin-right: 10px;
+    }
+    
+    /* Hero Section */
     .hero {
       position: relative;
       height: 600px;
@@ -81,7 +113,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(30, 30, 30, 0.7);
+      background-color: rgba(30,30,30,0.7);
     }
     .hero-content {
       position: relative;
@@ -102,7 +134,7 @@
       display: inline-block;
       padding: 12px 30px;
       background-color: #E10600;
-      color: #FFFFFF;
+      color: #FFF;
       text-decoration: none;
       border-radius: 4px;
       font-size: 18px;
@@ -112,36 +144,7 @@
       background-color: #BF0000;
     }
     
-    /* Section Global Styles */
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .section-heading {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #FFFFFF;
-    }
-    .section-text {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #B0B0B0;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: justify;
-    }
-    
-    /* Japanese-Inspired Vertical Accent Element */
-    .vertical-text {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-size: 16px;
-      color: #FFEB3B;
-      margin-right: 10px;
-    }
-    
-    /* Gallery Styles for 3D Renders Section */
+    /* Gallery (3D Renders Section) */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -180,11 +183,11 @@
     .grid-overlay h3 {
       margin: 0 0 10px 0;
       font-size: 20px;
-      color: #FFFFFF;
+      color: #FFF;
     }
     .download-btn {
       background-color: #E10600;
-      color: #FFFFFF;
+      color: #FFF;
       padding: 10px 15px;
       text-decoration: none;
       border-radius: 4px;
@@ -196,7 +199,7 @@
       box-shadow: 0 0 12px rgba(225,80,0,0.3);
     }
     
-    /* Interactive 3D Model Viewer Section */
+    /* Interactive Model Viewer (via model-viewer) */
     .interactive-3d {
       padding: 40px 20px;
       background-color: #2A2A2A;
@@ -205,7 +208,7 @@
     .interactive-3d h2 {
       font-size: 36px;
       margin-bottom: 20px;
-      color: #FFFFFF;
+      color: #FFF;
     }
     model-viewer {
       width: 100%;
@@ -214,7 +217,27 @@
       border-radius: 8px;
     }
     
-    /* Contact Form Styles */
+    /* Three.js Demo Section */
+    #threejs-demo {
+      padding: 40px 20px;
+      background-color: #222;
+      text-align: center;
+    }
+    #threejs-demo h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+    #threejs-canvas {
+      width: 100%;
+      height: 500px;
+      border-radius: 8px;
+      display: block;
+      margin: auto;
+      background-color: #000;
+    }
+    
+    /* Contact Form */
     .contact-form {
       max-width: 600px;
       margin: auto;
@@ -246,7 +269,7 @@
     .contact-form button {
       background-color: #E10600;
       border: none;
-      color: #FFFFFF;
+      color: #FFF;
       font-size: 18px;
       padding: 12px 25px;
       cursor: pointer;
@@ -285,29 +308,30 @@
       .hero-content p {
         font-size: 16px;
       }
-      model-viewer {
+      model-viewer, #threejs-canvas {
         height: 300px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation: In-Page Anchors -->
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#hero"><span class="nav-counter"></span>Home</a></li>
       <li><a href="#introduction"><span class="nav-counter"></span>Introduction</a></li>
       <li><a href="#about"><span class="nav-counter"></span>About</a></li>
       <li><a href="#renders"><span class="nav-counter"></span>3D Renders</a></li>
+      <li><a href="#threejs-demo"><span class="nav-counter"></span>Three.js Demo</a></li>
       <li><a href="#contact"><span class="nav-counter"></span>Contact</a></li>
     </ul>
   </nav>
   
-  <!-- Hero Section (Home) -->
+  <!-- Hero Section -->
   <header id="hero" class="hero">
     <div class="hero-content">
       <h1>Elevate Your Workflow</h1>
-      <p>Experience the fusion of cutting-edge 3D rendering and Japanese minimalism.</p>
+      <p>Experience the fusion of cutting‑edge 3D rendering and Japanese minimalism.</p>
       <a class="cta" href="#contact">Start Free Trial</a>
     </div>
   </header>
@@ -316,11 +340,8 @@
   <section id="introduction">
     <h2 class="section-heading">Introduction</h2>
     <p class="section-text">
-      I am {{ site.author | default: "Enes Rencber" }}, a creative professional specializing in state-of-the-art 3D rendering.
-      My innovative approach combines advanced technology with refined Japanese aesthetics, delivering immersive digital experiences.
-    </p>
-    <p class="section-text">
-      Discover how our platform transforms product presentations with unmatched visual clarity and artistic excellence.
+      I am {{ site.author | default: "Enes Rencber" }}, a creative professional specializing in state‑of‑the‑art 3D rendering.
+      Our platform combines advanced technology with refined Japanese aesthetics to deliver immersive digital experiences.
     </p>
   </section>
   
@@ -328,17 +349,13 @@
   <section id="about">
     <h2 class="section-heading">About Me</h2>
     <p class="section-text">
-      With two years of hands-on experience, I've mastered the art of 3D rendering using Cinema 4D and Octane Render.
-      From luxury beverages to revolutionary tech gadgets, my work brings products to life with exceptional detail.
+      With two years of hands‑on experience, I’ve mastered the art of creating high‑quality, photo‑realistic renders using tools like Cinema 4D and Octane Render.
+      My work, ranging from luxury beverages to innovative tech gadgets, is defined by technical precision and artistic vision.
     </p>
-    <p class="section-text">
-      My passion is fueled by innovation and a commitment to pushing creative boundaries. Let us help elevate your brand with captivating visuals.
-    </p>
-    <!-- Japanese-Inspired Vertical Accent -->
-    <div style="display: flex; align-items: center; margin-top: 40px; justify-content: center;">
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 40px;">
       <div class="vertical-text">FEATURED</div>
       <div style="flex: 1; font-size: 18px; color: #B0B0B0; line-height: 1.6; max-width: 600px;">
-        Explore detailed case studies that showcase the transformative power of high-end 3D imagery.
+        Explore case studies that showcase how high‑end 3D imagery transforms brands.
       </div>
     </div>
   </section>
@@ -350,9 +367,9 @@
     <div class="gallery">
       <!-- Grid Item 1 -->
       <div class="grid-item">
-        <a href="{{ '/portfolio-3D/blueginbottle.glb' | relative_url }}">
-          <!-- Replace the thumbnail image path with your actual thumbnail (if available) -->
-          <img src="{{ '/portfolio-3D/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
+        <a href="{{ '/blueginbottle.glb' | relative_url }}">
+          <!-- Replace with your thumbnail image if available -->
+          <img src="{{ '/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
         </a>
         <div class="grid-overlay">
           <h3>Beverage Product Render</h3>
@@ -365,7 +382,7 @@
         <img src="{{ '/assets/render2.jpg' | relative_url }}" alt="3D Render - Tech Gadget">
         <div class="grid-overlay">
           <h3>Tech Gadget Render</h3>
-          <p>High-end visuals for laptops and cameras</p>
+          <p>High‑end visuals for laptops and cameras</p>
           <a href="downloads/render2.c4d" class="download-btn">Download C4D File</a>
         </div>
       </div>
@@ -380,29 +397,39 @@
       </div>
     </div>
     
-    <!-- Interactive 3D Model Viewer -->
+    <!-- Interactive 3D Model Viewer using model-viewer -->
     <div class="interactive-3d">
       <h2>Interactive 3D Viewer</h2>
       <model-viewer 
-        src="{{ '/portfolio-3D/blueginbottle.glb' | relative_url }}" 
+        src="{{ '/blueginbottle.glb' | relative_url }}" 
         alt="Blue Gin Bottle 3D Model" 
         auto-rotate 
         camera-controls 
         reveal="auto"
         environment-image="neutral"
-        poster="{{ '/portfolio-3D/brownginbottle.jpg' | relative_url }}">
+        poster="{{ '/brownginbottle.jpg' | relative_url }}">
       </model-viewer>
     </div>
+  </section>
+  
+  <!-- Three.js Demo Section -->
+  <section id="threejs-demo">
+    <h2>Three.js Integration</h2>
+    <p class="section-text" style="max-width: 700px; margin:auto;">
+      Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
+    </p>
+    <!-- Canvas for the Three.js Scene -->
+    <canvas id="threejs-canvas"></canvas>
   </section>
   
   <!-- Contact Section -->
   <section id="contact">
     <h2 class="section-heading">Contact</h2>
     <p class="section-text">
-      Ready to collaborate or have questions? Get in touch with us today.
+      Ready to collaborate or have questions? Get in touch today.
     </p>
-    <div class="contact-info" style="margin-bottom: 30px;">
-      <p>Send a message via the form below or email <strong>3drenderix@gmail.com</strong>.</p>
+    <div class="contact-info">
+      <p>Send us a message using the form below or email <strong>3drenderix@gmail.com</strong>.</p>
     </div>
     <div class="contact-form">
       <form action="mailto:3drenderix@gmail.com" method="post" enctype="text/plain">
@@ -427,5 +454,69 @@
   <footer>
     &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "Your SaaS Product" }}. All Rights Reserved.
   </footer>
+  
+  <!-- Three.js Library and GLTFLoader (using CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  
+  <!-- Three.js Integration Script -->
+  <script>
+    // Get the canvas element
+    const canvas = document.getElementById("threejs-canvas");
+    
+    // Create a basic Three.js scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1e1e1e);
+    
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 3;
+    
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Add ambient light and directional light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+    
+    // Load the GLB model using GLTFLoader
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      "{{ '/blueginbottle.glb' | relative_url }}",
+      function (gltf) {
+        // Position and scale the model appropriately
+        gltf.scene.position.set(0, -0.5, 0);
+        gltf.scene.scale.set(0.8, 0.8, 0.8);
+        scene.add(gltf.scene);
+      },
+      undefined,
+      function (error) {
+        console.error("An error occurred while loading the GLB model:", error);
+      }
+    );
+    
+    // Animate the scene
+    function animate() {
+      requestAnimationFrame(animate);
+      // Rotate the scene for an animated effect
+      scene.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Handle canvas resizing
+    window.addEventListener("resize", function () {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
+  </script>
 </body>
 </html>
