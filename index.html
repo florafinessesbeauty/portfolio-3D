@@ -7,8 +7,17 @@ author: "Enes Rencber"
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Your Name] | 3D Rendering Portfolio & Product Visualizations</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="3D Artist with 2 years’ experience specializing in high-quality product renders of beverages, soft drink and alcohol cans, gin/whiskey bottles, tech products (PCs, headphones, keyboards, mouse), and beauty products. Rendered in Cinema 4D using studio lighting, HDRI, and high-quality materials from fab.com and Quixel Bridge.">
+  <meta name="keywords" content="3d rendering, product rendering, cinema 4d, beverage rendering, soft drink cans, alcohol cans, gin bottle, whiskey bottle, tech product rendering, PC rendering, headphones, keyboard, mouse, beauty product rendering, studio lighting, HDRI, Japanese design, custom typography, mobile-first, gamification, fab.com, quixel bridge">
+  
+  <!-- Link to Japanese style fonts and CSS (example using Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  
   <!-- Inline Styles (or link an external CSS file) -->
   <style>
     /* Global & Typography */
@@ -311,278 +320,292 @@ author: "Enes Rencber"
       .hero-content p {
         font-size: 16px;
       }
-      model-viewer, #threejs-canvas {
+      model-viewer,
+      #threejs-canvas {
         height: 300px;
       }
     }
+    
+    /* Hidden SEO Sections */
+    .hidden { display: none; }
   </style>
 </head>
-
-<!-- Navigation -->
-<nav>
-  <ul>
-    <li><a href="#hero"><span class="nav-counter"></span>Home</a></li>
-    <li><a href="#introduction"><span class="nav-counter"></span>Introduction</a></li>
-    <li><a href="#about"><span class="nav-counter"></span>About</a></li>
-    <li><a href="#philosophy"><span class="nav-counter"></span>Philosophy</a></li>
-    <li><a href="#renders"><span class="nav-counter"></span>3D Renders</a></li>
-    <li><a href="#threejs-demo"><span class="nav-counter"></span>Three.js Demo</a></li>
-    <li><a href="#contact"><span class="nav-counter"></span>Contact</a></li>
-  </ul>
-</nav>
-
-<!-- Hero Section -->
-<header id="hero" class="hero">
-  <div class="hero-content">
-    <h1>Elevate Your Workflow</h1>
-    <p>Experience the fusion of cutting‑edge 3D rendering and modern design.</p>
-    <a class="cta" href="#contact">Start Free Trial</a>
-  </div>
-</header>
-
-<!-- Introduction Section (Enhanced) -->
-<section id="introduction">
-  <h2 class="section-heading">Introduction</h2>
-  <p class="section-text">
-    Welcome to <strong>3DRENDERIX</strong>, where innovation meets precision in digital visualization. I am {{ site.author | default: "Enes Rencber" }}, a creative professional specializing in high‑quality 3D product rendering using Cinema 4D and Octane Render. I deliver photorealistic 3D renders for an array of industries—from soft drink cans, alcohol bottles, and jewelry to high‑tech gadgets, modern interiors, and architectural projects. Whether you are seeking 3D rendering for products, interior design, or even virtual 3D rendering for real estate marketing and virtual tours, my services address questions like “What is 3D rendering?” and “Which software do architects use for 3D rendering?” while ensuring your products stand out.
-  </p>
-  <p class="section-text">
-    My process not only covers the technical aspects—such as meeting GPU/CPU requirements, managing VRAM for 3D rendering, and selecting the best graphics card or laptop for 3D rendering—but also focuses on creative storytelling. By combining advanced 3D rendering techniques with innovative design approaches, I turn ideas into digital masterpieces that capture every detail.
-  </p>
-</section>
-
-<!-- About Me Section (Enhanced) -->
-<section id="about">
-  <h2 class="section-heading">About Me</h2>
-  <p class="section-text">
-    With extensive hands‑on experience in Cinema 4D and Octane Render, I have honed a workflow that produces photorealistic renders across diverse niches. My portfolio includes 3D rendering for interior design, architectural visualization, and product imaging—answering questions such as “How much RAM for 3D rendering?” and “Which processor is best for 3D rendering?” while offering solutions that meet even the most demanding specifications. Whether you need detailed renders for house plans, interior design demonstrations, or high‑end visualization for tech products and jewelry, my work is defined by technical precision and artistic vision.
-  </p>
-  <p class="section-text">
-    From 3D rendering services for construction and real estate to interactive digital experiences (including virtual 3D rendering and VR 3D rendering), my comprehensive approach ensures that your project receives a tailored touch.
-  </p>
-  <div style="display: flex; align-items: center; justify-content: center; margin-top: 40px;">
-    <div class="vertical-text">FEATURED</div>
-    <div style="flex: 1; font-size: 18px; color: #B0B0B0; line-height: 1.6; max-width: 600px;">
-      Explore case studies that showcase how expert 3D rendering transforms products—from innovative tech and interior design to high‑end beverage packaging and jewelry.
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#hero"><span class="nav-counter"></span>Home</a></li>
+      <li><a href="#introduction"><span class="nav-counter"></span>Introduction</a></li>
+      <li><a href="#about"><span class="nav-counter"></span>About</a></li>
+      <li><a href="#philosophy"><span class="nav-counter"></span>Philosophy</a></li>
+      <li><a href="#renders"><span class="nav-counter"></span>3D Renders</a></li>
+      <li><a href="#threejs-demo"><span class="nav-counter"></span>Three.js Demo</a></li>
+      <li><a href="#contact"><span class="nav-counter"></span>Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Hero Section -->
+  <header id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Elevate Your Workflow</h1>
+      <p>Experience the fusion of cutting‑edge 3D rendering and modern design.</p>
+      <a class="cta" href="#contact">Start Free Trial</a>
     </div>
-  </div>
-</section>
-
-<!-- Philosophy Section (Enhanced with SEO Keywords) -->
-<section id="philosophy" style="text-align: left; max-width: 900px; margin: 0 auto;">
-  <h2 class="section-heading" style="text-align: center;">Elevate Your Brand with Unrivaled 3D Product Rendering</h2>
+  </header>
   
-  <h3 style="font-size:28px; margin-bottom:15px;">Where Art Meets Technology</h3>
-  <p class="section-text">
-    In today’s digital-first world, 3D rendering is more than image creation—it’s a transformative experience. At <strong>3DRENDERIX</strong>, I blend cutting‑edge software and creative expertise to produce photorealistic visuals. Whether you’re looking for 3D rendering for interior design, architectural visualization, or dynamic product imaging, every render is crafted to captivate your audience.
-  </p>
-  <p class="section-text">
-    I address queries like “Which graphics card is best for 3D rendering?” and “What software do architects use for 3D rendering?” while ensuring every image meets exacting quality standards. My work spans from free 3D rendering software trials to high‑end digital creations powered by advanced CPUs, GPUs, and VR/AR solutions.
-  </p>
+  <!-- Introduction Section (Enhanced) -->
+  <section id="introduction">
+    <h2 class="section-heading">Introduction</h2>
+    <p class="section-text">
+      Welcome to <strong>3DRENDERIX</strong>, where innovation meets precision in digital visualization. I am {{ site.author | default: "Enes Rencber" }}, a creative professional specializing in high‑quality 3D product rendering using Cinema 4D and Octane Render. I deliver photorealistic 3D renders for an array of industries—from soft drink cans, alcohol bottles, and jewelry to high‑tech gadgets, modern interiors, and architectural projects. Whether you are seeking 3D rendering for products, interior design, or even virtual 3D rendering for real estate marketing and virtual tours, my services address questions like “What is 3D rendering?” and “Which software do architects use for 3D rendering?” while ensuring your products stand out.
+    </p>
+    <p class="section-text">
+      My process not only covers the technical aspects—such as meeting GPU/CPU requirements, managing VRAM for 3D rendering, and selecting the best graphics card or laptop for 3D rendering—but also focuses on creative storytelling. By combining advanced 3D rendering techniques with innovative design approaches, I turn ideas into digital masterpieces that capture every detail.
+    </p>
+  </section>
   
-  <h3 style="font-size:28px; margin-bottom:15px;">Our Process: Precision in Every Pixel</h3>
-  <ol class="section-text" style="margin-left:20px;">
-    <li><strong>Conceptualization &amp; Planning:</strong> We begin by understanding your brand narrative and project goals—whether you need 3D rendering services for products, interior design, or architectural projects. This stage answers core questions like “What is 3D rendering?” and defines the best digital strategy for your vision.</li>
-    <li><strong>3D Modeling &amp; Texturing:</strong> Leveraging industry-leading tools, I craft detailed 3D models complete with precise textures and realistic lighting—suitable for everything from rendering house plans to product visualization.</li>
-    <li><strong>Dynamic Rendering &amp; Animation:</strong> Using techniques powered by Three.js and model‑viewer integrations, each model becomes interactive and animated, transforming static images into engaging digital experiences.</li>
-    <li><strong>Final Polish &amp; Delivery:</strong> The final step includes rigorous quality checks and output optimization for every platform—ensuring that your digital asset performs flawlessly on websites, mobile apps, and digital marketing channels.</li>
-  </ol>
+  <!-- About Me Section (Enhanced) -->
+  <section id="about">
+    <h2 class="section-heading">About Me</h2>
+    <p class="section-text">
+      With extensive hands‑on experience in Cinema 4D and Octane Render, I have honed a workflow that produces photorealistic renders across diverse niches. My portfolio includes 3D rendering for interior design, architectural visualization, and product imaging—answering questions such as “How much RAM for 3D rendering?” and “Which processor is best for 3D rendering?” while offering solutions that meet even the most demanding specifications. Whether you need detailed renders for house plans, interior design demonstrations, or high‑end visualization for tech products and jewelry, my work is defined by technical precision and artistic vision.
+    </p>
+    <p class="section-text">
+      From 3D rendering services for construction and real estate to interactive digital experiences (including virtual 3D rendering and VR 3D rendering), my comprehensive approach ensures that your project receives a tailored touch.
+    </p>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 40px;">
+      <div class="vertical-text">FEATURED</div>
+      <div style="flex: 1; font-size: 18px; color: #B0B0B0; line-height: 1.6; max-width: 600px;">
+        Explore case studies that showcase how expert 3D rendering transforms products—from innovative tech and interior design to high‑end beverage packaging and jewelry.
+      </div>
+    </div>
+  </section>
   
-  <h3 style="font-size:28px; margin-bottom:15px;">The Fusion of Minimalism and High Fidelity</h3>
-  <p class="section-text">
-    Balancing complexity and clarity is an art. Our approach is inspired by a broad spectrum of design influences to ensure that each render not only captivates but also clearly communicates your brand’s message with clarity. Whether comparing “3D rendering vs. 2D rendering” or exploring the best hardware configurations and system requirements for 3D rendering, the quality speaks for itself.
-  </p>
-  <ul class="section-text" style="margin-left:20px;">
-    <li><strong>Enhanced Engagement:</strong> Interactive 3D models captivate your audience, inviting them to explore every detail.</li>
-    <li><strong>Clarity in Communication:</strong> Every render is meticulously crafted—from lighting and texture to spatial depth—ensuring your message is conveyed perfectly.</li>
-    <li><strong>Professional Appeal:</strong> With photorealistic 3D visuals crafted using advanced tools, your brand gains the trust and recognition it deserves.</li>
-  </ul>
+  <!-- Philosophy Section (Enhanced with SEO Keywords) -->
+  <section id="philosophy" style="text-align: left; max-width: 900px; margin: 0 auto;">
+    <h2 class="section-heading" style="text-align: center;">Elevate Your Brand with Unrivaled 3D Product Rendering</h2>
+    <h3 style="font-size:28px; margin-bottom:15px;">Where Art Meets Technology</h3>
+    <p class="section-text">
+      In today’s digital-first world, 3D rendering is more than image creation—it’s a transformative experience. At <strong>3DRENDERIX</strong>, I blend cutting‑edge software and creative expertise to produce photorealistic visuals. Whether you’re looking for 3D rendering for interior design, architectural visualization, or dynamic product imaging, every render is crafted to captivate your audience.
+    </p>
+    <p class="section-text">
+      I address queries like “Which graphics card is best for 3D rendering?” and “What software do architects use for 3D rendering?” while ensuring every image meets exacting quality standards. My work spans from free 3D rendering software trials to high‑end digital creations powered by advanced CPUs, GPUs, and VR/AR solutions.
+    </p>
+    <h3 style="font-size:28px; margin-bottom:15px;">Our Process: Precision in Every Pixel</h3>
+    <ol class="section-text" style="margin-left:20px;">
+      <li><strong>Conceptualization &amp; Planning:</strong> We begin by understanding your brand narrative and project goals—whether you need 3D rendering services for products, interior design, or architectural projects. This stage answers core questions like “What is 3D rendering?” and defines the best digital strategy for your vision.</li>
+      <li><strong>3D Modeling &amp; Texturing:</strong> Leveraging industry-leading tools, I craft detailed 3D models complete with precise textures and realistic lighting—suitable for everything from rendering house plans to product visualization.</li>
+      <li><strong>Dynamic Rendering &amp; Animation:</strong> Using techniques powered by Three.js and model‑viewer integrations, each model becomes interactive and animated, transforming static images into engaging digital experiences.</li>
+      <li><strong>Final Polish &amp; Delivery:</strong> The final step includes rigorous quality checks and output optimization for every platform—ensuring that your digital asset performs flawlessly on websites, mobile apps, and digital marketing channels.</li>
+    </ol>
+    <h3 style="font-size:28px; margin-bottom:15px;">The Fusion of Minimalism and High Fidelity</h3>
+    <p class="section-text">
+      Balancing complexity and clarity is an art. Our approach is inspired by a broad spectrum of design influences to ensure that each render not only captivates but also clearly communicates your brand’s message with clarity. Whether comparing “3D rendering vs. 2D rendering” or exploring the best hardware configurations and system requirements for 3D rendering, the quality speaks for itself.
+    </p>
+    <ul class="section-text" style="margin-left:20px;">
+      <li><strong>Enhanced Engagement:</strong> Interactive 3D models captivate your audience, inviting them to explore every detail.</li>
+      <li><strong>Clarity in Communication:</strong> Every render is meticulously crafted—from lighting and texture to spatial depth—ensuring your message is conveyed perfectly.</li>
+      <li><strong>Professional Appeal:</strong> With photorealistic 3D visuals crafted using advanced tools, your brand gains the trust and recognition it deserves.</li>
+    </ul>
+    <h3 style="font-size:28px; margin-bottom:15px;">Why 3D Rendering Matters</h3>
+    <p class="section-text">
+      In an age when first impressions are digital, high‑quality 3D product rendering is not optional—it’s a growth lever. Interactive, photorealistic visuals dramatically reduce bounce rates and increase engagement. Customers no longer want to merely imagine a product; they want to experience it.
+    </p>
+    <ul class="section-text" style="margin-left:20px;">
+      <li><strong>Enhanced Engagement:</strong> Interactive models lead to deeper brand interaction.</li>
+      <li><strong>Clarity in Communication:</strong> Detailed renders showcase every product element, ensuring your message is perfectly delivered.</li>
+      <li><strong>Professionalism &amp; Trust:</strong> Stunning 3D visuals elevate your brand’s reputation and instill confidence.</li>
+    </ul>
+    <h3 style="font-size:28px; margin-bottom:15px;">Your Vision, Rendered in 3D</h3>
+    <p class="section-text">
+      At <strong>3DRENDERIX</strong>, every project is a collaborative journey—an opportunity to transform your ideas into digital masterpieces. From interior 3D rendering and architectural visualization to product imaging and virtual tours, I am dedicated to turning your vision into a stunning reality.
+    </p>
+    <p class="section-text">
+      Let’s bring your vision to life. Your product deserves an impeccable digital presence, and with my advanced 3D rendering techniques, we ensure it’s showcased in its best light.
+    </p>
+  </section>
   
-  <h3 style="font-size:28px; margin-bottom:15px;">Why 3D Rendering Matters</h3>
-  <p class="section-text">
-    In an age when first impressions are digital, high‑quality 3D product rendering is not optional—it’s a growth lever. Interactive, photorealistic visuals dramatically reduce bounce rates and increase engagement. Customers no longer want to merely imagine a product; they want to experience it.
-  </p>
-  <ul class="section-text" style="margin-left:20px;">
-    <li><strong>Enhanced Engagement:</strong> Interactive models lead to deeper brand interaction.</li>
-    <li><strong>Clarity in Communication:</strong> Detailed renders showcase every product element, ensuring your message is perfectly delivered.</li>
-    <li><strong>Professionalism &amp; Trust:</strong> Stunning 3D visuals elevate your brand’s reputation and instill confidence.</li>
-  </ul>
+  <!-- Hidden SEO Keywords/Content Block -->
+  <section id="seo-keywords" class="hidden">
+    <p>
+      3d rendering, product rendering, cinema 4d, beverage rendering, soft drink cans, alcohol cans, gin bottle, whiskey bottle, tech product rendering, PC rendering, headphones, keyboards, mouse, beauty product rendering, studio lighting, HDRI, Japanese design, custom typography, mobile-first, gamification, fab.com, quixel bridge.
+    </p>
+    <p>
+      <strong>Typography Insights:</strong> "Typography can make or break a design", "Sets the tone", "Guides the eye", "Creates hierarchy", "Boosts readability", "Adds personality."
+    </p>
+    <p>
+      <strong>Common 3D Rendering Queries:</strong> "How to get into 3d rendering", "What is 3d rendering?", "Best GPUs for 3d rendering", "3d rendering vs. 2d rendering", "What software do architects use for 3d rendering?"
+    </p>
+  </section>
   
-  <h3 style="font-size:28px; margin-bottom:15px;">Your Vision, Rendered in 3D</h3>
-  <p class="section-text">
-    At <strong>3DRENDERIX</strong>, every project is a collaborative journey—an opportunity to transform your ideas into digital masterpieces. From interior 3D rendering and architectural visualization to product imaging and virtual tours, I am dedicated to turning your vision into a stunning reality.
-  </p>
-  <p class="section-text">
-    Let’s bring your vision to life. Your product deserves an impeccable digital presence, and with my advanced 3D rendering techniques, we ensure it’s showcased in its best light.
-  </p>
-</section>
-
-<!-- 3D Renders Section -->
-<section id="renders">
-  <h2 class="section-heading">3D Renders</h2>
-  <!-- Gallery -->
-  <div class="gallery">
-    <!-- Grid Item 1 -->
+  <!-- 3D Renders Section -->
+  <section id="renders">
+    <h2 class="section-heading">3D Renders</h2>
+    <!-- Gallery -->
+    <div class="gallery">
+      <!-- Grid Item 1 -->
+      <div class="grid-item">
+        <a href="{{ '/blueginbottle.glb' | relative_url }}">
+          <img src="{{ '/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
+        </a>
+        <div class="grid-overlay">
+          <h3>Beverage Product Render</h3>
+          <p>Stunning HDR visuals for premium drinks</p>
+          <a href="downloads/render1.c4d" class="download-btn">Download C4D File</a>
+        </div>
+      </div>
+      <!-- Grid Item 2 -->
+      <div class="grid-item">
+        <img src="{{ '/assets/render2.jpg' | relative_url }}" alt="3D Render - Tech Gadget">
+        <div class="grid-overlay">
+          <h3>Tech Gadget Render</h3>
+          <p>High‑end visuals for laptops and cameras</p>
+          <a href="downloads/render2.c4d" class="download-btn">Download C4D File</a>
+        </div>
+      </div>
+      <!-- Grid Item 3 -->
+      <div class="grid-item">
+        <img src="{{ '/assets/render3.jpg' | relative_url }}" alt="3D Render - Beauty Product">
+        <div class="grid-overlay">
+          <h3>Beauty Product Render</h3>
+          <p>Elegant renders that capture every detail</p>
+          <a href="downloads/render3.c4d" class="download-btn">Download C4D File</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Interactive 3D Model Viewer using model-viewer -->
+    <div class="interactive-3d">
+      <h2>Interactive 3D Viewer</h2>
+      <model-viewer 
+        src="{{ '/blueginbottle.glb' | relative_url }}" 
+        alt="Blue Gin Bottle 3D Model" 
+        auto-rotate 
+        camera-controls 
+        reveal="auto"
+        environment-image="neutral"
+        poster="{{ '/brownginbottle.jpg' | relative_url }}">
+      </model-viewer>
+    </div>
+  
+    <!-- Grid Item for USDC File -->
     <div class="grid-item">
-      <a href="{{ '/blueginbottle.glb' | relative_url }}">
-        <img src="{{ '/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
+      <a href="{{ '/blueginbottle.usdc' | relative_url }}">
+        <img src="{{ '/assets/usdc-icon.jpg' | relative_url }}" alt="Download USD Model">
       </a>
       <div class="grid-overlay">
-        <h3>Beverage Product Render</h3>
-        <p>Stunning HDR visuals for premium drinks</p>
-        <a href="downloads/render1.c4d" class="download-btn">Download C4D File</a>
+        <h3>USD Format Model</h3>
+        <p>Download the model in USD format</p>
+        <a href="{{ '/blueginbottle.usdc' | relative_url }}" class="download-btn">Download USDC File</a>
       </div>
     </div>
-    <!-- Grid Item 2 -->
-    <div class="grid-item">
-      <img src="{{ '/assets/render2.jpg' | relative_url }}" alt="3D Render - Tech Gadget">
-      <div class="grid-overlay">
-        <h3>Tech Gadget Render</h3>
-        <p>High‑end visuals for laptops and cameras</p>
-        <a href="downloads/render2.c4d" class="download-btn">Download C4D File</a>
-      </div>
-    </div>
-    <!-- Grid Item 3 -->
-    <div class="grid-item">
-      <img src="{{ '/assets/render3.jpg' | relative_url }}" alt="3D Render - Beauty Product">
-      <div class="grid-overlay">
-        <h3>Beauty Product Render</h3>
-        <p>Elegant renders that capture every detail</p>
-        <a href="downloads/render3.c4d" class="download-btn">Download C4D File</a>
-      </div>
-    </div>
-  </div>
+  </section>
   
-  <!-- Interactive 3D Model Viewer using model-viewer -->
-  <div class="interactive-3d">
-    <h2>Interactive 3D Viewer</h2>
-    <model-viewer 
-      src="{{ '/blueginbottle.glb' | relative_url }}" 
-      alt="Blue Gin Bottle 3D Model" 
-      auto-rotate 
-      camera-controls 
-      reveal="auto"
-      environment-image="neutral"
-      poster="{{ '/brownginbottle.jpg' | relative_url }}">
-    </model-viewer>
-  </div>
-</section>
-
-<!-- Grid Item for USDC File -->
-<div class="grid-item">
-  <a href="{{ '/blueginbottle.usdc' | relative_url }}">
-    <img src="{{ '/assets/usdc-icon.jpg' | relative_url }}" alt="Download USD Model">
-  </a>
-  <div class="grid-overlay">
-    <h3>USD Format Model</h3>
-    <p>Download the model in USD format</p>
-    <a href="{{ '/blueginbottle.usdc' | relative_url }}" class="download-btn">Download USDC File</a>
-  </div>
-</div>
-
-<!-- Three.js Demo Section -->
-<section id="threejs-demo">
-  <h2>Three.js Integration</h2>
-  <p class="section-text" style="max-width: 700px; margin:auto;">
-    Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
-  </p>
-  <canvas id="threejs-canvas"></canvas>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <h2 class="section-heading">Contact</h2>
-  <p class="section-text">
-    Ready to collaborate or have questions? Get in touch today.
-  </p>
-  <div class="contact-info">
-    <p>Send us a message using the form below or email <strong>3drenderix@gmail.com</strong>.</p>
-  </div>
-  <div class="contact-form">
-    <form action="mailto:3drenderix@gmail.com" method="post" enctype="text/plain">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" placeholder="Subject" required>
-      
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "3DRENDERIX" }}. All Rights Reserved.
-</footer>
-
-<!-- Three.js Library and GLTFLoader (using CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
-
-<!-- Three.js Integration Script -->
-<script>
-  // Get the canvas element
-  const canvas = document.getElementById("threejs-canvas");
-
-  // Create a basic Three.js scene
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x1e1e1e);
-
-  const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-  camera.position.z = 3;
-
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
-
-  // Add ambient light and directional light
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-  scene.add(ambientLight);
-
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  directionalLight.position.set(1, 1, 1);
-  scene.add(directionalLight);
-
-  // Load the GLB model using GLTFLoader
-  const loader = new THREE.GLTFLoader();
-  loader.load(
-    "{{ '/blueginbottle.glb' | relative_url }}",
-    function (gltf) {
-      // Position and scale the model appropriately
-      gltf.scene.position.set(0, -0.5, 0);
-      gltf.scene.scale.set(0.8, 0.8, 0.8);
-      scene.add(gltf.scene);
-    },
-    undefined,
-    function (error) {
-      console.error("An error occurred while loading the GLB model:", error);
+  <!-- Three.js Demo Section -->
+  <section id="threejs-demo">
+    <h2>Three.js Integration</h2>
+    <p class="section-text" style="max-width: 700px; margin:auto;">
+      Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
+    </p>
+    <canvas id="threejs-canvas"></canvas>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-heading">Contact</h2>
+    <p class="section-text">
+      Ready to collaborate or have questions? Get in touch today.
+    </p>
+    <div class="contact-info">
+      <p>Send us a message using the form below or email <strong>3drenderix@gmail.com</strong>.</p>
+    </div>
+    <div class="contact-form">
+      <form action="mailto:3drenderix@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "3DRENDERIX" }}. All Rights Reserved.
+  </footer>
+  
+  <!-- Three.js Library and GLTFLoader (using CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  
+  <!-- Three.js Integration Script -->
+  <script>
+    // Get the canvas element
+    const canvas = document.getElementById("threejs-canvas");
+    
+    // Create a basic Three.js scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1e1e1e);
+    
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 3;
+    
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Add ambient light and directional light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+    
+    // Load the GLB model using GLTFLoader
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      "{{ '/blueginbottle.glb' | relative_url }}",
+      function (gltf) {
+        // Position and scale the model appropriately
+        gltf.scene.position.set(0, -0.5, 0);
+        gltf.scene.scale.set(0.8, 0.8, 0.8);
+        scene.add(gltf.scene);
+      },
+      undefined,
+      function (error) {
+        console.error("An error occurred while loading the GLB model:", error);
+      }
+    );
+    
+    // Animate the scene
+    function animate() {
+      requestAnimationFrame(animate);
+      // Rotate the scene for an animated effect
+      scene.rotation.y += 0.005;
+      renderer.render(scene, camera);
     }
-  );
-
-  // Animate the scene
-  function animate() {
-    requestAnimationFrame(animate);
-    // Rotate the scene for an animated effect
-    scene.rotation.y += 0.005;
-    renderer.render(scene, camera);
-  }
-
-  animate();
-
-  // Handle canvas resizing
-  window.addEventListener("resize", function () {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-  });
-</script>  
+    
+    animate();
+    
+    // Handle canvas resizing
+    window.addEventListener("resize", function () {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+  
+</body>
 </html>
