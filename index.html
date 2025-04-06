@@ -3,6 +3,320 @@ layout: default
 title: "3DRENDERIX - High Quality 3D Renders & Models"
 author: "Enes Rencber"
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <!-- Inline Styles (or link an external CSS file) -->
+  <style>
+    /* Global & Typography */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E;
+      font-family: Arial, sans-serif;
+      color: #FFF;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #E10600;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      counter-reset: navcounter;
+    }
+    nav ul li {
+      counter-increment: navcounter;
+      margin: 0 20px;
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #FFF;
+      font-size: 18px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+    }
+    nav ul li a .nav-counter::before {
+      content: counter(navcounter);
+      background-color: #E10600;
+      border-radius: 50%;
+      color: #FFF;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      left: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    nav ul li a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(225,80,0,0.25);
+    }
+    
+    /* Section Base */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .section-heading {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+    .section-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #B0B0B0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+    }
+    
+    /* Vertical Accent Element */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 16px;
+      color: #FFEB3B;
+      margin-right: 10px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 600px;
+      background: url('{{ "assets/hero.jpg" | relative_url }}') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(30,30,30,0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #B0B0B0;
+    }
+    .hero-content a.cta {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #E10600;
+      color: #FFF;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-content a.cta:hover {
+      background-color: #BF0000;
+    }
+    
+    /* Gallery (3D Renders Section) */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .grid-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+    .grid-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(30,30,30,0.8);
+      color: #B0B0B0;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+    }
+    .grid-item:hover .grid-overlay {
+      opacity: 1;
+    }
+    .grid-overlay h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      color: #FFF;
+    }
+    .download-btn {
+      background-color: #E10600;
+      color: #FFF;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(225,80,0,0.3);
+    }
+    
+    /* Interactive Model Viewer (via model-viewer) */
+    .interactive-3d {
+      padding: 40px 20px;
+      background-color: #2A2A2A;
+      text-align: center;
+    }
+    .interactive-3d h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+    model-viewer {
+      width: 100%;
+      height: 500px;
+      background-color: #1E1E1E;
+      border-radius: 8px;
+    }
+    
+    /* Three.js Demo Section */
+    #threejs-demo {
+      padding: 40px 20px;
+      background-color: #222;
+      text-align: center;
+    }
+    #threejs-demo h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFF;
+    }
+    #threejs-canvas {
+      width: 100%;
+      height: 500px;
+      border-radius: 8px;
+      display: block;
+      margin: auto;
+      background-color: #000;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #2A2A2A;
+      padding: 30px;
+      border-radius: 8px;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #444;
+      color: #FFF;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .contact-form button {
+      background-color: #E10600;
+      border: none;
+      color: #FFF;
+      font-size: 18px;
+      padding: 12px 25px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(225,80,0,0.3);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      color: #B0B0B0;
+      font-size: 14px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hero {
+        height: 400px;
+      }
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+      model-viewer, #threejs-canvas {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
 
 <!-- Navigation -->
 <nav>
