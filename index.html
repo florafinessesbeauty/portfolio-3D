@@ -474,7 +474,62 @@ author: "Enes Rencber"
       </div>
     </div>
     
-    <!-- Interactive 3D Model Viewer using model-viewer -->
+    <!-- Interactive 3D Model Viewer using model-viewer -->  Below is how you can reorganize your code so that the model-viewer library is loaded at the right time—ensuring your interactive 3D model works properly—and still keeping your Three.js demo section intact.
+Where to Insert the Model-Viewer Library Scripts
+Since your <model-viewer> element is used near the top of your page (within a section that’s part of the overall portfolio), you need to load its library before any Three.js scripts run. One common pattern is to add the model-viewer script tags right before the Three.js CDN script tags at the end of your document—ideally, right before your Three.js integration script.
+Example Update at the End of Your index.html File
+Place the following code right before your Three.js integration scripts (or before the closing </body> tag):
+  <!-- Model Viewer Library -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <!-- Three.js Library and GLTFLoader (using CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  
+  <!-- Three.js Integration Script -->
+  <script>
+    // Three.js related code for your 3D scene...
+  </script>
+
+
+With this order, your browser will first load the model-viewer libraries so that when your <model-viewer> element is encountered (and even if it exists in the markup before these script tags), the browser already knows how to interpret it. Then, your Three.js library and your own integration code will load afterward.
+How the Final Section of Your File Looks in Context
+Here’s an excerpt showing the complete order at the bottom of your file:
+  <!-- Three.js Demo Section -->
+  <section id="threejs-demo">
+    <h2>Three.js Integration</h2>
+    <p class="section-text" style="max-width: 700px; margin:auto;">
+      Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
+    </p>
+    <canvas id="threejs-canvas"></canvas>
+  </section>
+  
+  <!-- Model Viewer Library -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  
+  <!-- Three.js Library and GLTFLoader (using CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+  
+  <!-- Three.js Integration Script -->
+  <script>
+    // Your Three.js integration code here...
+    // (e.g., scene creation, camera setup, loader.load, animation loop, etc.)
+  </script>
+</body>
+</html>
+
+
+Final Checklist
+- Include the model-viewer library scripts using the <script type="module"> and <script nomodule> tags.
+- Place these tags before the Three.js libraries to avoid any race conditions.
+- Verify your file paths: Ensure that your GLB model and poster image paths are correct.
+- Check your browser console for errors: This can help you catch issues like CORS or file-not-found errors.
+
+Once you incorporate these changes, your interactive 3D model via <model-viewer> should work properly alongside your Three.js demo. Let me know if you run into any further issues or need additional tweaks!
+
     <div class="interactive-3d">
       <h2>Interactive 3D Viewer</h2>
       <model-viewer 
