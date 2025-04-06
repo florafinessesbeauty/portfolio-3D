@@ -3,348 +3,30 @@ layout: default
 title: "3DRENDERIX - High Quality 3D Renders & Models"
 author: "Enes Rencber"
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.title | default: "3DRENDERIX - High Quality 3D Renders & Models" }}</title>
-  
-  <!-- Import model-viewer for 3D interactivity -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  
-  <!-- Global Styles -->
-  <style>
-    /* Global & Typography */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #1E1E1E;
-      font-family: Arial, sans-serif;
-      color: #FFF;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    
-    /* Navigation */
-    nav {
-      background-color: #E10600;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      counter-reset: navcounter;
-    }
-    nav ul li {
-      counter-increment: navcounter;
-      margin: 0 20px;
-      position: relative;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #FFF;
-      font-size: 18px;
-      padding: 10px 15px;
-      transition: all 0.3s ease;
-    }
-    /* Optional gamified counter */
-    nav ul li a .nav-counter::before {
-      content: counter(navcounter);
-      background-color: #E10600;
-      border-radius: 50%;
-      color: #FFF;
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      text-align: center;
-      line-height: 24px;
-      position: absolute;
-      left: -35px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    nav ul li a:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(225,80,0,0.25);
-    }
-    
-    /* Section Base */
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .section-heading {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #FFF;
-    }
-    .section-text {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #B0B0B0;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: justify;
-    }
-    
-    /* Vertical Accent Element */
-    .vertical-text {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-size: 16px;
-      color: #FFEB3B;
-      margin-right: 10px;
-    }
-    
-    /* Hero Section */
-    .hero {
-      position: relative;
-      height: 600px;
-      background: url('{{ "assets/hero.jpg" | relative_url }}') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      bottom: 0;
-      background-color: rgba(30,30,30,0.7);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 20px;
-    }
-    .hero-content h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .hero-content p {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #B0B0B0;
-    }
-    .hero-content a.cta {
-      display: inline-block;
-      padding: 12px 30px;
-      background-color: #E10600;
-      color: #FFF;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-    .hero-content a.cta:hover {
-      background-color: #BF0000;
-    }
-    
-    /* Gallery (3D Renders Section) */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-    }
-    .grid-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .grid-item img {
-      width: 100%;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .grid-item:hover img {
-      transform: scale(1.05);
-    }
-    .grid-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(30,30,30,0.8);
-      color: #B0B0B0;
-      padding: 15px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      text-align: center;
-    }
-    .grid-item:hover .grid-overlay {
-      opacity: 1;
-    }
-    .grid-overlay h3 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-      color: #FFF;
-    }
-    .download-btn {
-      background-color: #E10600;
-      color: #FFF;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(225,80,0,0.3);
-    }
-    
-    /* Interactive Model Viewer (via model-viewer) */
-    .interactive-3d {
-      padding: 40px 20px;
-      background-color: #2A2A2A;
-      text-align: center;
-    }
-    .interactive-3d h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #FFF;
-    }
-    model-viewer {
-      width: 100%;
-      height: 500px;
-      background-color: #1E1E1E;
-      border-radius: 8px;
-    }
-    
-    /* Three.js Demo Section */
-    #threejs-demo {
-      padding: 40px 20px;
-      background-color: #222;
-      text-align: center;
-    }
-    #threejs-demo h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #FFF;
-    }
-    #threejs-canvas {
-      width: 100%;
-      height: 500px;
-      border-radius: 8px;
-      display: block;
-      margin: auto;
-      background-color: #000;
-    }
-    
-    /* Contact Form */
-    .contact-form {
-      max-width: 600px;
-      margin: auto;
-      background-color: #2A2A2A;
-      padding: 30px;
-      border-radius: 8px;
-    }
-    .contact-form label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 16px;
-    }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      background-color: #444;
-      color: #FFF;
-    }
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    .contact-form button {
-      background-color: #E10600;
-      border: none;
-      color: #FFF;
-      font-size: 18px;
-      padding: 12px 25px;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-    .contact-form button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(225,80,0,0.3);
-    }
-    
-    /* Footer */
-    footer {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-      color: #B0B0B0;
-      font-size: 14px;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-      .hero {
-        height: 400px;
-      }
-      .hero-content h1 {
-        font-size: 36px;
-      }
-      .hero-content p {
-        font-size: 16px;
-      }
-      model-viewer, #threejs-canvas {
-        height: 300px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#hero"><span class="nav-counter"></span>Home</a></li>
-      <li><a href="#introduction"><span class="nav-counter"></span>Introduction</a></li>
-      <li><a href="#about"><span class="nav-counter"></span>About</a></li>
-      <li><a href="#philosophy"><span class="nav-counter"></span>Philosophy</a></li>
-      <li><a href="#renders"><span class="nav-counter"></span>3D Renders</a></li>
-      <li><a href="#threejs-demo"><span class="nav-counter"></span>Three.js Demo</a></li>
-      <li><a href="#contact"><span class="nav-counter"></span>Contact</a></li>
-    </ul>
-  </nav>
-  
-  <!-- Hero Section -->
-  <header id="hero" class="hero">
-    <div class="hero-content">
-      <h1>Elevate Your Workflow</h1>
-      <p>Experience the fusion of cutting‑edge 3D rendering and modern design.</p>
-      <a class="cta" href="#contact">Start Free Trial</a>
-    </div>
-  </header>  
-  <!-- Introduction Section (Enhanced) -->
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="#hero"><span class="nav-counter"></span>Home</a></li>
+    <li><a href="#introduction"><span class="nav-counter"></span>Introduction</a></li>
+    <li><a href="#about"><span class="nav-counter"></span>About</a></li>
+    <li><a href="#philosophy"><span class="nav-counter"></span>Philosophy</a></li>
+    <li><a href="#renders"><span class="nav-counter"></span>3D Renders</a></li>
+    <li><a href="#threejs-demo"><span class="nav-counter"></span>Three.js Demo</a></li>
+    <li><a href="#contact"><span class="nav-counter"></span>Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<header id="hero" class="hero">
+  <div class="hero-content">
+    <h1>Elevate Your Workflow</h1>
+    <p>Experience the fusion of cutting‑edge 3D rendering and modern design.</p>
+    <a class="cta" href="#contact">Start Free Trial</a>
+  </div>
+</header>
+
+<!-- Introduction Section (Enhanced) -->
 <section id="introduction">
   <h2 class="section-heading">Introduction</h2>
   <p class="section-text">
@@ -362,7 +44,7 @@ author: "Enes Rencber"
     With extensive hands‑on experience in Cinema 4D and Octane Render, I have honed a workflow that produces photorealistic renders across diverse niches. My portfolio includes 3D rendering for interior design, architectural visualization, and product imaging—answering questions such as “How much RAM for 3D rendering?” and “Which processor is best for 3D rendering?” while offering solutions that meet even the most demanding specifications. Whether you need detailed renders for house plans, interior design demonstrations, or high‑end visualization for tech products and jewelry, my work is defined by technical precision and artistic vision.
   </p>
   <p class="section-text">
-    From 3D rendering services for construction and real estate to interactive digital experiences (even virtual 3D rendering and VR 3D rendering), my comprehensive approach ensures that your project receives a tailored touch.
+    From 3D rendering services for construction and real estate to interactive digital experiences (including virtual 3D rendering and VR 3D rendering), my comprehensive approach ensures that your project receives a tailored touch.
   </p>
   <div style="display: flex; align-items: center; justify-content: center; margin-top: 40px;">
     <div class="vertical-text">FEATURED</div>
@@ -372,9 +54,7 @@ author: "Enes Rencber"
   </div>
 </section>
 
-
-  
- <!-- Philosophy Section (Enhanced with SEO Keywords) -->
+<!-- Philosophy Section (Enhanced with SEO Keywords) -->
 <section id="philosophy" style="text-align: left; max-width: 900px; margin: 0 auto;">
   <h2 class="section-heading" style="text-align: center;">Elevate Your Brand with Unrivaled 3D Product Rendering</h2>
   
@@ -396,7 +76,7 @@ author: "Enes Rencber"
   
   <h3 style="font-size:28px; margin-bottom:15px;">The Fusion of Minimalism and High Fidelity</h3>
   <p class="section-text">
-    Balancing complexity and clarity is an art. Our approach is inspired by a broad spectrum of design influences to ensure that each render not only captivates but also clearly communicates your brand’s message. Whether comparing “3D rendering vs. 2D rendering” or exploring the best hardware configurations and system requirements for 3D rendering, the quality speaks for itself.
+    Balancing complexity and clarity is an art. Our approach is inspired by a broad spectrum of design influences to ensure that each render not only captivates but also clearly communicates your brand’s message with clarity. Whether comparing “3D rendering vs. 2D rendering” or exploring the best hardware configurations and system requirements for 3D rendering, the quality speaks for itself.
   </p>
   <ul class="section-text" style="margin-left:20px;">
     <li><strong>Enhanced Engagement:</strong> Interactive 3D models captivate your audience, inviting them to explore every detail.</li>
@@ -422,177 +102,172 @@ author: "Enes Rencber"
     Let’s bring your vision to life. Your product deserves an impeccable digital presence, and with my advanced 3D rendering techniques, we ensure it’s showcased in its best light.
   </p>
 </section>
-  
-  <!-- 3D Renders Section -->
-  <section id="renders">
-    <h2 class="section-heading">3D Renders</h2>
-    <!-- Gallery -->
-    <div class="gallery">
-      <!-- Grid Item 1 -->
-      <div class="grid-item">
-        <a href="{{ '/blueginbottle.glb' | relative_url }}">
-          <!-- Replace with your thumbnail image if available -->
-          <img src="{{ '/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
-        </a>
-        <div class="grid-overlay">
-          <h3>Beverage Product Render</h3>
-          <p>Stunning HDR visuals for premium drinks</p>
-          <a href="downloads/render1.c4d" class="download-btn">Download C4D File</a>
-        </div>
-      </div>
-      <!-- Grid Item 2 -->
-      <div class="grid-item">
-        <img src="{{ '/assets/render2.jpg' | relative_url }}" alt="3D Render - Tech Gadget">
-        <div class="grid-overlay">
-          <h3>Tech Gadget Render</h3>
-          <p>High‑end visuals for laptops and cameras</p>
-          <a href="downloads/render2.c4d" class="download-btn">Download C4D File</a>
-        </div>
-      </div>
-      <!-- Grid Item 3 -->
-      <div class="grid-item">
-        <img src="{{ '/assets/render3.jpg' | relative_url }}" alt="3D Render - Beauty Product">
-        <div class="grid-overlay">
-          <h3>Beauty Product Render</h3>
-          <p>Elegant renders that capture every detail</p>
-          <a href="downloads/render3.c4d" class="download-btn">Download C4D File</a>
-        </div>
+
+<!-- 3D Renders Section -->
+<section id="renders">
+  <h2 class="section-heading">3D Renders</h2>
+  <!-- Gallery -->
+  <div class="gallery">
+    <!-- Grid Item 1 -->
+    <div class="grid-item">
+      <a href="{{ '/blueginbottle.glb' | relative_url }}">
+        <img src="{{ '/blueginbottle-thumbnail.jpg' | relative_url }}" alt="3D Render - Beverage Product">
+      </a>
+      <div class="grid-overlay">
+        <h3>Beverage Product Render</h3>
+        <p>Stunning HDR visuals for premium drinks</p>
+        <a href="downloads/render1.c4d" class="download-btn">Download C4D File</a>
       </div>
     </div>
-    
-    <!-- Interactive 3D Model Viewer using model-viewer -->
-    <div class="interactive-3d">
-      <h2>Interactive 3D Viewer</h2>
-      <model-viewer 
-        src="{{ '/blueginbottle.glb' | relative_url }}" 
-        alt="Blue Gin Bottle 3D Model" 
-        auto-rotate 
-        camera-controls 
-        reveal="auto"
-        environment-image="neutral"
-        poster="{{ '/brownginbottle.jpg' | relative_url }}">
-      </model-viewer>
+    <!-- Grid Item 2 -->
+    <div class="grid-item">
+      <img src="{{ '/assets/render2.jpg' | relative_url }}" alt="3D Render - Tech Gadget">
+      <div class="grid-overlay">
+        <h3>Tech Gadget Render</h3>
+        <p>High‑end visuals for laptops and cameras</p>
+        <a href="downloads/render2.c4d" class="download-btn">Download C4D File</a>
+      </div>
     </div>
-  </section>
-  
-  <!-- Grid Item for USDC File -->
-  <div class="grid-item">
-    <a href="{{ '/blueginbottle.usdc' | relative_url }}">
-      <!-- You can use a custom icon or thumbnail for the USDC file -->
-      <img src="{{ '/assets/usdc-icon.jpg' | relative_url }}" alt="Download USD Model">
-    </a>
-    <div class="grid-overlay">
-      <h3>USD Format Model</h3>
-      <p>Download the model in USD format</p>
-      <a href="{{ '/blueginbottle.usdc' | relative_url }}" class="download-btn">Download USDC File</a>
+    <!-- Grid Item 3 -->
+    <div class="grid-item">
+      <img src="{{ '/assets/render3.jpg' | relative_url }}" alt="3D Render - Beauty Product">
+      <div class="grid-overlay">
+        <h3>Beauty Product Render</h3>
+        <p>Elegant renders that capture every detail</p>
+        <a href="downloads/render3.c4d" class="download-btn">Download C4D File</a>
+      </div>
     </div>
   </div>
   
-  <!-- Three.js Demo Section -->
-  <section id="threejs-demo">
-    <h2>Three.js Integration</h2>
-    <p class="section-text" style="max-width: 700px; margin:auto;">
-      Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
-    </p>
-    <!-- Canvas for the Three.js Scene -->
-    <canvas id="threejs-canvas"></canvas>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-heading">Contact</h2>
-    <p class="section-text">
-      Ready to collaborate or have questions? Get in touch today.
-    </p>
-    <div class="contact-info">
-      <p>Send us a message using the form below or email <strong>3drenderix@gmail.com</strong>.</p>
-    </div>
-    <div class="contact-form">
-      <form action="mailto:3drenderix@gmail.com" method="post" enctype="text/plain">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-        
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-        
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "3DRENDERIX" }}. All Rights Reserved.
-  </footer>
-  
-  <!-- Three.js Library and GLTFLoader (using CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
-  
-  <!-- Three.js Integration Script -->
-  <script>
-    // Get the canvas element
-    const canvas = document.getElementById("threejs-canvas");
-    
-    // Create a basic Three.js scene
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1e1e1e);
-    
-    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.z = 3;
-    
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    
-    // Add ambient light and directional light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-    scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-    
-    // Load the GLB model using GLTFLoader
-    const loader = new THREE.GLTFLoader();
-    loader.load(
-      "{{ '/blueginbottle.glb' | relative_url }}",
-      function (gltf) {
-        // Position and scale the model appropriately
-        gltf.scene.position.set(0, -0.5, 0);
-        gltf.scene.scale.set(0.8, 0.8, 0.8);
-        scene.add(gltf.scene);
-      },
-      undefined,
-      function (error) {
-        console.error("An error occurred while loading the GLB model:", error);
-      }
-    );
-    
-    // Animate the scene
-    function animate() {
-      requestAnimationFrame(animate);
-      // Rotate the scene for an animated effect
-      scene.rotation.y += 0.005;
-      renderer.render(scene, camera);
+  <!-- Interactive 3D Model Viewer using model-viewer -->
+  <div class="interactive-3d">
+    <h2>Interactive 3D Viewer</h2>
+    <model-viewer 
+      src="{{ '/blueginbottle.glb' | relative_url }}" 
+      alt="Blue Gin Bottle 3D Model" 
+      auto-rotate 
+      camera-controls 
+      reveal="auto"
+      environment-image="neutral"
+      poster="{{ '/brownginbottle.jpg' | relative_url }}">
+    </model-viewer>
+  </div>
+</section>
+
+<!-- Grid Item for USDC File -->
+<div class="grid-item">
+  <a href="{{ '/blueginbottle.usdc' | relative_url }}">
+    <img src="{{ '/assets/usdc-icon.jpg' | relative_url }}" alt="Download USD Model">
+  </a>
+  <div class="grid-overlay">
+    <h3>USD Format Model</h3>
+    <p>Download the model in USD format</p>
+    <a href="{{ '/blueginbottle.usdc' | relative_url }}" class="download-btn">Download USDC File</a>
+  </div>
+</div>
+
+<!-- Three.js Demo Section -->
+<section id="threejs-demo">
+  <h2>Three.js Integration</h2>
+  <p class="section-text" style="max-width: 700px; margin:auto;">
+    Explore an alternative interactive 3D scene powered by Three.js. This demo loads the same model in a custom WebGL scene.
+  </p>
+  <canvas id="threejs-canvas"></canvas>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2 class="section-heading">Contact</h2>
+  <p class="section-text">
+    Ready to collaborate or have questions? Get in touch today.
+  </p>
+  <div class="contact-info">
+    <p>Send us a message using the form below or email <strong>3drenderix@gmail.com</strong>.</p>
+  </div>
+  <div class="contact-form">
+    <form action="mailto:3drenderix@gmail.com" method="post" enctype="text/plain">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "3DRENDERIX" }}. All Rights Reserved.
+</footer>
+
+<!-- Three.js Library and GLTFLoader (using CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+
+<!-- Three.js Integration Script -->
+<script>
+  // Get the canvas element
+  const canvas = document.getElementById("threejs-canvas");
+
+  // Create a basic Three.js scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x1e1e1e);
+
+  const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+  camera.position.z = 3;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  // Add ambient light and directional light
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  directionalLight.position.set(1, 1, 1);
+  scene.add(directionalLight);
+
+  // Load the GLB model using GLTFLoader
+  const loader = new THREE.GLTFLoader();
+  loader.load(
+    "{{ '/blueginbottle.glb' | relative_url }}",
+    function (gltf) {
+      // Position and scale the model appropriately
+      gltf.scene.position.set(0, -0.5, 0);
+      gltf.scene.scale.set(0.8, 0.8, 0.8);
+      scene.add(gltf.scene);
+    },
+    undefined,
+    function (error) {
+      console.error("An error occurred while loading the GLB model:", error);
     }
-    
-    animate();
-    
-    // Handle canvas resizing
-    window.addEventListener("resize", function () {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    });
-  </script>
-</body>
-</html>
+  );
+
+  // Animate the scene
+  function animate() {
+    requestAnimationFrame(animate);
+    // Rotate the scene for an animated effect
+    scene.rotation.y += 0.005;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Handle canvas resizing
+  window.addEventListener("resize", function () {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  });
+</script>
